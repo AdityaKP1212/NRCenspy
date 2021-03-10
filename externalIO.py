@@ -38,7 +38,7 @@ def prepareQuery(requestType, appName):
         print(transactionQuery)
         return transactionQuery
     if requestType == RequestType.PageViews:
-        whereClause = "where appName in (" + appName + ") AND name LIKE '%ASP%' AND name NOT LIKE '%ashx%' AND name NOT LIKE '%Handler%' "
+        whereClause = "where appName in (" + appName + ") AND name LIKE '%ASP%' AND name NOT LIKE '%ashx%' AND name NOT LIKE '%Handler%' and name NOT LIKE '%Scripts%' and name NOT LIKE '%Suggestions%' and name NOT LIKE '%service-worker.js' and name not like '%behindpage.aspx' "
         pageViewQuery = baseQuery + whereClause + groupByClause + periodicityClause + limitClause
         print(pageViewQuery)
         return pageViewQuery
